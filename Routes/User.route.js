@@ -82,7 +82,7 @@ router.post('/login', async (req, res) => {
 
 router.get('/',Authorization, async (req, res) => {
     try {
-        const users = await Users.findOne({_id: jwt.decode(req.headers['authorization']).id});
+        const users = await Users.findOne({_id: jwt.decode(req.headers['authorization']).id}).populate("notes");
         return res.send(users);
     }
     catch (err) {
