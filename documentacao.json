@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ba30e54a-05b5-4a44-ab20-fc921b9438cd",
+		"_postman_id": "7d375f74-32a7-4193-bd1c-b4e0cdb6d82e",
 		"name": "NotesApi-V1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -25,9 +25,9 @@
 							"raw": "{\n\t\"name\": \"Iraneide Borges Taveira de Souza\",\n\t\"username\": \"iraneide\",\n\t\"email\": \"iraneidebts@gmail.com\",\n\t\"password\": \"12345678\"\n}"
 						},
 						"url": {
-							"raw": "{{url_api}}/user/create",
+							"raw": "{{api_url}}/user/create",
 							"host": [
-								"{{url_api}}"
+								"{{api_url}}"
 							],
 							"path": [
 								"user",
