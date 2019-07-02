@@ -8,7 +8,7 @@ const Authorization = require('../Middlewares/Authorization');
 
 //FUNÇÕES AUXILIARES
 const createUserToken = (userId) => {
-    return jwt.sign({ id: userId }, config.jwt_pass, { expiresIn: config.jwt_expires_in });
+    return jwt.sign({ id: userId }, 'peN4s1uW3MdMHaQMtZ1JIgYhHnN3R5kUM6jGHjXAektSZOD0dSJJrytKODJGWRx7XeuKblYKnbpVe0KTDx3exB0fbHPdZFKOeZDegiL4GpAHYZISSfKsAu70bNGSkH8bft04qj6oOzhY4e9btpNrgWEATvH8vIWdH7Ln7xjxZYNvtqtIgvljPRCrFNgfcupsjip0qr0Tsc71MTyOtR5k8YPyuhWpBjciycQmD1dQbpsgbJBFcY3wsKckyKgYb7KU', { expiresIn: '1d' });
 }
 
 //ROTAS
