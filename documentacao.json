@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "ba30e54a-05b5-4a44-ab20-fc921b9438cd",
+		"name": "NotesApi-V1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuário",
+			"item": [
+				{
+					"name": "Cadastrar Usuário",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Iraneide Borges Taveira de Souza\",\n\t\"username\": \"iraneide\",\n\t\"email\": \"iraneidebts@gmail.com\",\n\t\"password\": \"12345678\"\n}"
+						},
+						"url": {
+							"raw": "{{url_api}}/user/create",
+							"host": [
+								"{{url_api}}"
+							],
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Usuário",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"guilherme\",\n\t\"password\": \"12345678\"\n}"
+						},
+						"url": {
+							"raw": "{{url_api}}/user/login",
+							"host": [
+								"{{url_api}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuário Logado",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token_user}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url_api}}/user/",
+							"host": [
+								"{{url_api}}"
+							],
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notes",
+			"item": [
+				{
+					"name": "Listar Notas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{token_user}}"
+							}
+						],
+						"url": {
+							"raw": "{{url_api}}/notes/",
+							"host": [
+								"{{url_api}}"
+							],
+							"path": [
+								"notes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Notas",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{token_user}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Preparar palestra\",\n\t\"text\": \"Terminar a preparação da palestra que será apresentada para os professores na sexta a tarde \",\n\t\"is_active\": true\n}"
+						},
+						"url": {
+							"raw": "{{url_api}}/notes/create",
+							"host": [
+								"{{url_api}}"
+							],
+							"path": [
+								"notes",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "cc5c89d5-e910-4900-abe4-c1c64f94be0a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "390fab75-9431-4678-b8ce-afcd61354254",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Default",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_api}}/",
+					"host": [
+						"{{url_api}}"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": "Verificar disponibilidade da API"
+			},
+			"response": []
+		}
+	]
+}
