@@ -26,7 +26,7 @@ router.get('/',Authorization, async (req, res) => {
 });
 
 
-//CADASTRA Nota
+//CADASTRA NOTA
 router.post('/create',Authorization, async (req, res) => {
         // Decodificação do token de acesso do usuário logado
         var tokenDecode = jwt.decode(req.headers['authorization'])
@@ -52,4 +52,31 @@ router.post('/create',Authorization, async (req, res) => {
             return res.status(500).send({ error: 'Erro ao cadastrar nota!' });
         }
 });
+
+//ENCERRAR NOTA
+router.put('/:id', Authorization, (req, res)=> {
+    id = req.params.id;
+     Notes.findOneAndUpdate({ _id: id }, req.body, (err, doc) => {
+        if (err) {
+            res.status(500).json({ error: "Erro ao Atualizar nota"});
+            res.end();
+            return;
+        }
+        res.status(200).send({message: "nota Atualizada com sucesso!"});
+        res.end();
+    });
+});
+
+//EXCLUIR NOTA
+router.delete('/:id',Authorization, async (req, res) => {
+    var id = req.params.id
+    try {
+        const nota = await Notes.findByIdAndDelete(id);
+        return res.send({message: `${nota.title} removido com sucesso! `});
+    }
+    catch (err) {
+        return res.status(500).send({ error: 'Erro ao remover nota!' });
+    }
+});
+
 module.exports = router;

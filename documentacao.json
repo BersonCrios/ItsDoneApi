@@ -25,9 +25,9 @@
 							"raw": "{\n\t\"name\": \"Iraneide Borges Taveira de Souza\",\n\t\"username\": \"iraneide\",\n\t\"email\": \"iraneidebts@gmail.com\",\n\t\"password\": \"12345678\"\n}"
 						},
 						"url": {
-							"raw": "{{api_url}}/user/create",
+							"raw": "{{url_api}}/user/create",
 							"host": [
-								"{{api_url}}"
+								"{{url_api}}"
 							],
 							"path": [
 								"user",
@@ -148,6 +148,64 @@
 							"path": [
 								"notes",
 								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encerrar Nota",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token_user}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"is_active\": false\n}"
+						},
+						"url": {
+							"raw": "{{url_api}}/notes/5d1acfe7a479794efeaff325",
+							"host": [
+								"{{url_api}}"
+							],
+							"path": [
+								"notes",
+								"5d1acfe7a479794efeaff325"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir nota",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token_user}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url_api}}/notes/5d1acedc98580b4eb35f0898",
+							"host": [
+								"{{url_api}}"
+							],
+							"path": [
+								"notes",
+								"5d1acedc98580b4eb35f0898"
 							]
 						}
 					},
