@@ -10,7 +10,8 @@ const config = require('./Config/config');
 
 
 //MONGOOSE E MONGO
-const url = config.bd_string;
+// const url = config.bd_string;
+const url = "mongodb+srv://usuario_admin:@guilherme123147369789@cluster0-xmw0f.mongodb.net/test?retryWrites=true&w=majority"
 const options = { reconnectTries: Number.MAX_VALUE, reconnectInterval: 500, poolSize: 5, useNewUrlParser: true };
 
 mongoose.connect(url, options);
